@@ -74,16 +74,26 @@ import ipywidgets as widgets
 from IPython.display import display, clear_output
 
 # Load model
-model = load_model('/content/drive/MyDrive/capstone/model.h5') #use the file path of model.h5 on your computer
+model = load_model('/content/model.h5')
 
 # Predefined class labels
 labels = ['apple', 'avocado', 'banana', 'beetroot', 'cabbage', 'carrot', 'cauliflower', 'chilli pepper', 'corn', 'cucumber', 'durian', 'eggplant', 'garlic', 'ginger', 'grapes', 'guava', 'kiwi', 'langsat', 'lemon', 'lettuce', 'mango', 'mangosteen', 'melon', 'onion', 'orange', 'papaya', 'paprika', 'pear', 'peas', 'pineapple', 'potato', 'raddish', 'salak', 'soy beans', 'spinach', 'strawberies', 'sweetpotato', 'tomato', 'turnip', 'water-guava', 'watermelon']
+
 # Function to preprocess image
 def preprocess_image(image_path):
-    img = Image.open(image_path).convert("RGB").resize((224, 224))  # Convert RGBA to RGB
+    img = Image.open(image_path).convert("RGB")  # Convert RGBA to RGB
+    img_width, img_height = img.size
+    
+    # If image is larger than 224x224, resize to 224x224
+    if img_width > 224 or img_height > 224:
+        img = img.resize((224, 224))
+    
+    # Alternatively, for larger images, you can crop them to 224x224
+    # img = img.crop((0, 0, 224, 224))  # Crop top-left 224x224 region
+    
     img_array = np.array(img)
     img_array = preprocess_input(img_array)  # Apply MobileNetV2 preprocessing
-    img_array = np.expand_dims(img_array, axis=0)
+    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
     return img_array
 
 # Function to make predictions
@@ -122,6 +132,7 @@ upload_button.observe(on_upload_change, names='value')
 # Display the upload button and the output widget
 display(upload_button)
 display(output)
+
 
 ```
 
