@@ -63,16 +63,66 @@ To train the model, execute the following steps:
 
 ## Testing the Model
 
-After training, test the model using validation data:
+Test the model using validation data:
 
 ```python
 from tensorflow.keras.models import load_model
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+from PIL import Image
+import numpy as np
+import ipywidgets as widgets
+from IPython.display import display, clear_output
 
-# Load the trained model
-model = load_model('model/model.h5')
+# Load model
+model = load_model('/content/drive/MyDrive/capstone/model.h5') #use the file path of model.h5 on your computer
 
-# Test the model with new data
-predictions = model.predict(test_images)
+# Predefined class labels
+labels = ['apple', 'avocado', 'banana', 'beetroot', 'cabbage', 'carrot', 'cauliflower', 'chilli pepper', 'corn', 'cucumber', 'durian', 'eggplant', 'garlic', 'ginger', 'grapes', 'guava', 'kiwi', 'langsat', 'lemon', 'lettuce', 'mango', 'mangosteen', 'melon', 'onion', 'orange', 'papaya', 'paprika', 'pear', 'peas', 'pineapple', 'potato', 'raddish', 'salak', 'soy beans', 'spinach', 'strawberies', 'sweetpotato', 'tomato', 'turnip', 'water-guava', 'watermelon']
+# Function to preprocess image
+def preprocess_image(image_path):
+    img = Image.open(image_path).convert("RGB").resize((224, 224))  # Convert RGBA to RGB
+    img_array = np.array(img)
+    img_array = preprocess_input(img_array)  # Apply MobileNetV2 preprocessing
+    img_array = np.expand_dims(img_array, axis=0)
+    return img_array
+
+# Function to make predictions
+def predict_image(image_path):
+    preprocessed_image = preprocess_image(image_path)
+    predictions = model.predict(preprocessed_image)
+    predicted_class_index = np.argmax(predictions)
+    predicted_class = labels[predicted_class_index]
+    return predicted_class, predictions
+
+# Create an upload button
+upload_button = widgets.FileUpload(accept='image/*', multiple=False)
+
+# Create an output widget to display the results
+output = widgets.Output()
+
+def on_upload_change(change):
+    with output:
+        clear_output()
+        if upload_button.value:
+            uploaded_file = list(upload_button.value.values())[0]
+            image_path = '/content/uploaded_image.jpg'  # Temporary file path
+            with open(image_path, 'wb') as f:
+                f.write(uploaded_file['content'])
+
+            predicted_class, predictions = predict_image(image_path)
+
+            print(f"Predicted Class: {predicted_class}")
+            print("Probabilities:")
+            for i, prob in enumerate(predictions[0]):
+                print(f"- {labels[i]}: {prob:.4f}")
+
+# Register the callback function
+upload_button.observe(on_upload_change, names='value')
+
+# Display the upload button and the output widget
+display(upload_button)
+display(output)
+
 ```
 
 ---
