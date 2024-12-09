@@ -8,10 +8,18 @@ This repository contains a machine learning model for classifying data into 41 d
 ## Project Overview
 The purpose of this project is to develop a multi-class classification model using a pre-trained neural network as the base. The model is fine-tuned to accurately classify input data into one of 41 categories. The implementation leverages TensorFlow and Keras libraries.
 
-### Key Features
-- **Model Architecture**: Utilizes a pre-trained model with added dense layers for multi-class classification.
-- **Optimization**: Includes dropout layers to prevent overfitting and early stopping to optimize training.
-- **Visualization**: Provides training and validation accuracy/loss graphs to analyze model performance.
+### Fruit and Vegetable Label List
+
+| apple       | avocado       | banana       | beetroot      | cabbage       |
+|-------------|---------------|--------------|---------------|---------------|
+| carrot      | cauliflower   | chilli pepper| corn          | cucumber      |
+| durian      | eggplant      | garlic       | ginger        | grapes        |
+| guava       | kiwi          | langsat      | lemon         | lettuce       |
+| mango       | mangosteen    | melon        | onion         | orange        |
+| papaya      | paprika       | pear         | peas          | pineapple     |
+| potato      | raddish       | salak        | soy beans     | spinach       |
+| strawberries| sweetpotato   | tomato       | turnip        | water-guava   |
+| watermelon  |               |              |               |               |
 
 ---
 
@@ -92,8 +100,9 @@ display(output)
 
 ---
 
-## Contributing
-If you would like to contribute to this project, please fork the repository and submit a pull request. Feel free to open issues for suggestions or bug reports.
+## Model
+We use CNN for Fruit and Vegetable Classfication These are the model result:
+<img width="649" alt="Screenshot 2024-11-30 205119" src="https://github.com/user-attachments/assets/d7dab1d8-349b-4e96-8b90-b5890dd6c763">
 
 ---
 
