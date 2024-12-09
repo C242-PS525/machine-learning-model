@@ -15,52 +15,6 @@ The purpose of this project is to develop a multi-class classification model usi
 
 ---
 
-## Project Structure
-
-```
-├── dataset/                    # Folder containing training and validation datasets
-├── model/                      # Folder for saving trained model files
-├── fruitandvegetables.ipynb    # Jupyter Notebook for model development
-├── requirements.txt            # Python dependencies
-├── README.md                   # Project documentation
-```
-
----
-
-## Installation and Setup
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/ilmalyakinn/fruit-and-vegetables-model.git
-   cd fruit-and-vegetables-model
-   ```
-
-2. **Install Dependencies**:
-   Install the required Python packages using the `requirements.txt` file:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Download Dataset**:
-   Place your training and validation data in the `dataset/` folder. Ensure the data is properly labeled.
-
----
-
-## Model Training
-
-To train the model, execute the following steps:
-
-1. **Load and Prepare Data**:
-   Ensure your training and validation data are preprocessed and loaded correctly.
-
-2. **Run the Training Script**:
-   Open `fruitandvegetables.ipynb` or run the Python script to train the model.
-
-3. **Monitor Performance**:
-   Training and validation accuracy/loss graphs will be displayed to track the model's performance over epochs.
-
----
-
 ## Testing the Model
 
 Test the model using validation data:
@@ -137,46 +91,6 @@ display(output)
 ```
 
 ---
-
-## Visualization
-
-To visualize training and validation accuracy/loss, use the following:
-
-```python
-import matplotlib.pyplot as plt
-
-# Example plots
-plt.figure(figsize=(14, 6))
-
-# Accuracy plot
-plt.subplot(1, 2, 1)
-plt.plot(history.history['accuracy'], 'r', label='Training Accuracy')
-plt.plot(history.history['val_accuracy'], 'b', label='Validation Accuracy')
-plt.title('Training and Validation Accuracy')
-plt.xlabel('Epochs')
-plt.ylabel('Accuracy')
-plt.legend()
-
-# Loss plot
-plt.subplot(1, 2, 2)
-plt.plot(history.history['loss'], 'r', label='Training Loss')
-plt.plot(history.history['val_loss'], 'b', label='Validation Loss')
-plt.title('Training and Validation Loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-
-plt.tight_layout()
-plt.show()
-```
-
----
-
-## Visualization of Model Training Results
-
-<img width="649" alt="Screenshot 2024-11-30 205119" src="https://github.com/user-attachments/assets/d7dab1d8-349b-4e96-8b90-b5890dd6c763">
-)
-
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request. Feel free to open issues for suggestions or bug reports.
