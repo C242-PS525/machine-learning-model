@@ -10,8 +10,9 @@ The purpose of this project is to develop a multi-class classification model usi
 
 ### Fruit and Vegetable Label List
 
-| apple       | avocado       | banana       | beetroot      | cabbage       |
+|                            Fruit and Vegetable                             |
 |-------------|---------------|--------------|---------------|---------------|
+| apple       | avocado       | banana       | beetroot      | cabbage       |
 | carrot      | cauliflower   | chilli pepper| corn          | cucumber      |
 | durian      | eggplant      | garlic       | ginger        | grapes        |
 | guava       | kiwi          | langsat      | lemon         | lettuce       |
