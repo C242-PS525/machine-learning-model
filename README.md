@@ -9,17 +9,29 @@ This repository contains a machine learning model for classifying data into 41 d
 The purpose of this project is to develop a multi-class classification model using a pre-trained neural network as the base. The model is fine-tuned to accurately classify input data into one of 41 categories. The implementation leverages TensorFlow and Keras libraries.
 
 ### Fruit and Vegetable Label List
-|             |               |              |               |               |
-|-------------|---------------|--------------|---------------|---------------|
-| apple       | avocado       | banana       | beetroot      | cabbage       |
-| carrot      | cauliflower   | chilli pepper| corn          | cucumber      |
-| durian      | eggplant      | garlic       | ginger        | grapes        |
-| guava       | kiwi          | langsat      | lemon         | lettuce       |
-| mango       | mangosteen    | melon        | onion         | orange        |
-| papaya      | paprika       | pear         | peas          | pineapple     |
-| potato      | raddish       | salak        | soy beans     | spinach       |
-| strawberries| sweetpotato   | tomato       | turnip        | water-guava   |
-| watermelon  |               |              |               |               |
+|Fruits       |Vegetables     |
+|-------------|---------------|
+|apple        |beetroot       |
+|avocado      |cabbage        |
+|banana       |carrot         |
+|durian       |caulflower     |
+|grapes       |chilli pepper  |
+|guava        |corn           |
+|kiwi         |cucumber       |
+|langsat      |eggplant       |
+|lemon        |garlic         | 
+|mango        |ginger         |
+|mangosteen   |lettuce        |
+|melon        |union          |
+|orange       |paprika        |
+|papaya       |peas           |
+|pear         |potato         |
+|pineapple    |raddish        |
+|salak        |soy beans      |
+|strawberies  |spinach        |
+|tomato       |sweetpotato    |
+|water-guava  |turnip         |
+|watermelon   |               |
 
 ---
 
